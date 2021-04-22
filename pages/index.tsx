@@ -1,20 +1,7 @@
 import { GetStaticProps } from "next";
 import api from "../src/services/api";
+import Episode from '../src/models/Episode';
 
-type File = {
-    url: String;
-    type: String;
-    duration: Number;
-};
-type Episode = {
-  id: String;
-  title: String;
-  members: String;
-  published_at: String;
-  thumbnail: String;
-  description: String;
-  file: File;
-};
 type HomeProps = {
   episodes: Episode[];
 };
