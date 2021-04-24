@@ -46,8 +46,23 @@ export default function SelectedEpisode({episode} : EpisodeProps){
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
+  const queryParams = {
+    _limit: 2,
+    _sort: "published_at",
+    _order: "desc"
+  };
+  const lastEpisodes = await (await api.get('/episodes/',{
+    params: queryParams,
+  })).data;
+
   return {
-    paths: [],
+    paths: lastEpisodes.map(ep =>{
+      return {
+        params: {
+          id: ep.id,
+        }
+      }
+    }),
     fallback: 'blocking'
   }
 }
