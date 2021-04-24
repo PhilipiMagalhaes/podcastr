@@ -1,15 +1,11 @@
-interface File {
-  url: String;
-  type: String;
-  duration: Number;
-}
-
 export default interface Episode {
-  id: String;
-  title: String;
-  members: String;
-  published_at: String;
-  thumbnail: String;
-  description: String;
-  file: File;
+  id: string;
+  title: string;
+  members: string;
+  duration: number;
+  convertedDuration: string;
+  thumbnail: string;
+  description: string;
+  publishedAt: string;
+  url: string;
 };
